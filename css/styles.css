@@ -1,0 +1,558 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+header, main, footer {
+    position: relative;
+    z-index: 2;
+}
+
+body {
+    background: linear-gradient(to top, #020111 0%, #191621 50%, #20202c 100%);
+    background-size: cover;
+    background-attachment: fixed;
+    /* min-height: 100vh; */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    position: relative;
+    overscroll-behavior: none;
+}
+
+/* Main */
+main {
+    padding-top: 80px; /* Adjust padding based on your navbar height */
+    flex: 1;
+}
+
+/* Navbar */
+header {
+    position: fixed;
+    background-attachment: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 1rem;
+    z-index: 10; /* Ensure navbar stays on top */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+}
+
+nav ul li {
+    margin-right: 1.5rem;
+}
+
+nav ul li a {
+    color: #f1f1f1; /* Soft white for links */
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease; /* Smooth hover transition */
+}
+
+nav ul li a:hover {
+    color: #f39c12; /* Highlighted orange on hover */
+}
+
+/* Logo Styling */
+.logo h1 {
+    color: #ffffff;  /* White text for the logo */
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Adjust the logo color on hover */
+.logo h1:hover {
+    color: #f39c12;  /* Orange highlight on hover */
+}
+
+
+/* Hero Section */
+.hero {
+    height: 90vh;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Add a dark overlay */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: #fff; /* Ensure text is white for contrast */
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    color: #f1f1f1;
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background-color: #f39c12;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+.hero-content h2 {
+    font-size: 3rem; /* Ensure it's large enough */
+    color: white;    /* Ensure it's clearly visible */
+}
+
+/* Hero Image - Circle Crop */
+.hero-img {
+    width: 300px;          /* Set the width to the desired size */
+    height: 300px;         /* Set the height to the same value as width for a perfect circle */
+    object-fit: cover;     /* Ensure the image scales properly within the circle */
+    border-radius: 50%;    /* Make the image circular */
+    margin-bottom: 20px;   /* Add space between the image and the text */
+}
+
+/* Highlight Grid - Circular Images */
+.highlight-grid {
+    display: flex;
+    gap: 2rem;  /* Adjust the spacing between items */
+    justify-content: space-around;
+}
+
+.highlight {
+    text-align: center;
+    width: 45%;  /* Adjust width of the container */
+}
+
+.highlight img {
+    width: 500px;   /* Make images smaller */
+    height: 500px;  /* Set equal height for circle */
+    object-fit: cover;   /* Ensure image fits in the circle */
+    border-radius: 50%;  /* Circular shape */
+    margin-bottom: 1rem; /* Spacing below image */
+}
+
+.highlight h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.highlight p {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: #f39c12;
+}
+
+/* Footer */
+footer {
+    background-color: rgba(27, 27, 27, 0.6); /* You can adjust the footer styles as needed */
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Optional border styling */
+    position: relative;
+    bottom: 0;
+    z-index: 2;
+}
+
+footer p {
+    margin: 0;
+    color: #f1f1f1; /* Light color for text */
+}
+
+footer a {
+    color: #f39c12; /* Orange for links in the footer */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #fff; /* Highlight to white on hover */
+}
+
+
+/* Characters Section */
+.characters-section {
+    padding: 2rem;
+    text-align: center;
+}
+
+.characters-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.character-card {
+    background-color: #bab9b94a;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.character-card:hover {
+    transform: translateY(-10px);
+}
+
+.character-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.character-card h3 {
+    color: #fff;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.character-card p {
+    font-size: 1rem;
+    color: #c2c2c2;
+    margin-bottom: 1.5rem;
+}
+
+.character-card a {
+    text-decoration: none;
+    color: #f39c12;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+
+/* Story Section */
+.story-section {
+    padding-top: 5rem;
+    text-align: center;
+}
+
+.story-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.story-section p {
+    font-size: 1.2rem;
+    color: #c2c2c2;
+    margin-bottom: 2rem;
+}
+
+/* Khandas Section */
+.khandas-section {
+    padding: 2rem;
+    
+}
+
+.khandas-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #fff;
+}
+
+.khanda {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.khanda img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 2rem;
+}
+
+.khanda-content {
+    flex: 1;
+}
+
+.khanda-content h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.khanda-content p {
+    margin-bottom: 1rem;
+    color: #c2c2c2;
+}
+
+.khanda-content a {
+    text-decoration: none;
+    color: #f39c12;
+    font-weight: bold;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .khanda {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .khanda img {
+        margin-bottom: 1rem;
+        margin-right: 0;
+    }
+}
+
+
+/* Lessons Section */
+.lessons-section {
+    padding: 2rem;
+    text-align: center;
+}
+
+.lessons-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.lessons-section p {
+    font-size: 1.2rem;
+    color: #c2c2c2;
+    margin-bottom: 2rem;
+}
+
+/* Lessons Grid */
+.lessons-grid-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.lesson-card {
+    background-color: #bab9b94a;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 1.5rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.lesson-card:hover {
+    transform: translateY(-10px);
+}
+
+.lesson-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.lesson-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.lesson-content p {
+    font-size: 1rem;
+    color: #c2c2c2;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .lessons-grid-section {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+
+/* Gallery Section */
+.gallery-section {
+    padding: 2rem;
+    text-align: center;
+}
+
+.gallery-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.gallery-section p {
+    font-size: 1.2rem;
+    color: #c2c2c2;
+    margin-bottom: 2rem;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.gallery-item {
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+
+/* Background elements */
+.animated-background, #particles-js, #starfield {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Keeps the background behind everything */
+}
+
+/* Glowing Star Background */
+.glowing-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -2; /* Behind other elements */
+}
+
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    width: 2px;
+    height: 2px;
+    animation: twinkle 5s infinite ease-in-out;
+    opacity: 0.8;
+}
+
+/* Keyframes for glowing and twinkling effect */
+@keyframes twinkle {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+}
+
+/* Starfield Canvas */
+/* #starfield {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure it's behind particles but above the background */
+/* } */ 
+
+/* Particle Background */
+/* #particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Ensure it stays behind content but above the starfield */
+/* } */
