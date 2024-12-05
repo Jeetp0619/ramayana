@@ -36,3 +36,9 @@ function startGame(gameName) {
 // Event listeners for menu buttons
 playRamRavanButton.addEventListener("click", () => startGame("ram-ravan"));
 playHanumanFlyButton.addEventListener("click", () => startGame("hanuman-fly"));
+
+window.addEventListener("resize", () => {
+    document.querySelectorAll(".menu-container button").forEach(button => {
+        button.style.fontSize = `${window.innerWidth * 0.02}px`;
+    });
+});

@@ -287,3 +287,8 @@ export class HanumanFlyGame {
         });
     }
 }
+
+window.addEventListener("resize", () => {
+    this.canvas.width = window.innerWidth * 0.8;
+    this.canvas.height = window.innerHeight * 0.8;
+});
