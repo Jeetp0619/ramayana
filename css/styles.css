@@ -754,7 +754,8 @@ nav {
     height: 150px;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
-    touch-action: none; /* Prevent default touch behaviors */
+    display: none; /* Initially hidden */
+    touch-action: none; /* Prevent default touch gestures */
     z-index: 100;
 }
 
@@ -769,6 +770,7 @@ nav {
     transform: translate(-50%, -50%);
     touch-action: none;
 }
+
 
 @media (max-width: 768px) {
     #joystickContainer {

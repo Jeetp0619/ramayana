@@ -42,6 +42,11 @@ export class RamRavanGame {
         this.isMobile = /Mobi|Android/i.test(navigator.userAgent);
         console.log("Is Mobile:", this.isMobile);
 
+        if (this.isMobile) {
+            const joystickContainer = document.getElementById("joystickContainer");
+            joystickContainer.style.display = "block"; // Show joystick on mobile
+        }
+
         // Joystick for mobile
         if (this.isMobile) {
             this.joystick = document.getElementById("joystick");
@@ -100,25 +105,26 @@ export class RamRavanGame {
         const rect = this.joystickContainer.getBoundingClientRect();
         this.joystickCenter.x = rect.left + rect.width / 2;
         this.joystickCenter.y = rect.top + rect.height / 2;
-
+    
         this.joystick.addEventListener("touchstart", () => {
             console.log("Joystick touched");
             this.isDraggingJoystick = true;
         });
-
+    
         this.joystick.addEventListener("touchmove", (event) => {
+            console.log("Joystick moved");
             if (!this.isDraggingJoystick) return;
-
+    
             const touch = event.touches[0];
             const dx = touch.clientX - this.joystickCenter.x;
             const dy = touch.clientY - this.joystickCenter.y;
             const distance = Math.min(Math.sqrt(dx * dx + dy * dy), 50);
             const angle = Math.atan2(dy, dx);
-
+    
             this.joystick.style.transform = `translate(${distance * Math.cos(angle)}px, ${distance * Math.sin(angle)}px)`;
             this.rama.velocityY = Math.sin(angle) * this.rama.dy;
         });
-
+    
         this.joystick.addEventListener("touchend", () => {
             console.log("Joystick released");
             this.isDraggingJoystick = false;
@@ -126,6 +132,7 @@ export class RamRavanGame {
             this.rama.velocityY = 0;
         });
     }
+    
 
     addEventListeners() {
         if (!this.isMobile) {
