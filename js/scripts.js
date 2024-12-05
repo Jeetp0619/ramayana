@@ -176,13 +176,32 @@ window.addEventListener('resize', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("Hamburger script is running");
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('nav ul');
 
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
+            if (navMenu.classList.contains('show')) {
+                navMenu.classList.remove('show'); // Hide the menu if it's already open
+            } else {
+                navMenu.classList.add('show'); // Show the menu
+            }
         });
+
+        // Optional: Close the menu when clicking anywhere outside of it
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                navMenu.classList.remove('show'); // Ensure the menu is hidden
+            }
+        });
+    } else {
+        console.error("Hamburger or navMenu not found");
     }
 });
+
+window.addEventListener('resize', () => {
+    navMenu.classList.remove('show');
+});
+
 
