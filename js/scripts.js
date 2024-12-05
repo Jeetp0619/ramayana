@@ -68,7 +68,7 @@ function drawStars() {
 }
 
 // Generate stars and start animation
-generateStars(150); // You can adjust this number
+generateStars(300); // You can adjust this number
 drawStars();
 
 // Recalculate canvas size if window is resized
@@ -158,4 +158,11 @@ particlesJS('particles-js', {
         }
     },
     "retina_detect": true
+});
+
+document.querySelectorAll('.character-card').forEach(card => {
+    card.addEventListener('click', () => {
+        const inner = card.querySelector('.card-inner');
+        inner.classList.toggle('flipped');
+    });
 });

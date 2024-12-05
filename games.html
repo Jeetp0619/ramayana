@@ -17,18 +17,34 @@
             </div>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="story.html">Story</a></li>
+                <li><a href="full_story.html">Story</a></li>
                 <li><a href="characters.html">Characters</a></li>
                 <li><a href="lessons.html">Lessons</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="games.html">Games</a></li>
             </ul>
         </nav>
     </header>
     
-    <main>
-        <h1>Shoot Ravan</h1>
-        <canvas class="gameCanvas" id="gameCanvas"></canvas>
-        <script src="js/ram-ravan.js"></script>
-    </main>
+    <!-- Main Menu -->
+    <div class="menu-container">
+        <h1>Ramayana Games</h1>
+        <p>Select a game to play:</p>
+        <button id="playRamRavan">Play Ram vs Ravan</button>
+        <button id="playHanumanFly">Play Hanuman Fly</button>
+    </div>
+
+    <!-- Game Container -->
+    <div class="game-container hidden">
+        <canvas id="gameCanvas"></canvas>
+        <div id="gameOver" class="hidden">
+            <h1>Game Over!</h1>
+            <p>Your Final Score: <span id="finalScore"></span></p>
+            <button id="restartButton">Restart Game</button>
+            <button id="menuButton">Return to Menu</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/menu.js"></script>
+    
 </body>

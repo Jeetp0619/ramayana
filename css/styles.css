@@ -232,52 +232,79 @@ footer a:hover {
     color: #fff;
 }
 
-.character-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+
+
+/* General Card Styling */
+.character-card {
+    perspective: 1000px;
+    width: 400px; /* Set card width */
+    height: 400px; /* Set fixed height */
+    overflow: hidden; /* Prevent content overflow */
+    text-align: center; /* Center-align text */
 }
 
-.character-card {
-    background-color: #bab9b94a;
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.character-card:hover .card-inner {
+    transform: rotateY(180deg); /* Flips the card */
+}
+
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hides the back face */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
+    padding: 1rem;
+    background-color: #3f2a845a; /* Ensure a solid background color */
+    overflow: hidden; /* Ensure no text or content leaks out */
+    color: #ffffff;
 }
 
-.character-card:hover {
-    transform: translateY(-10px);
+.card-back {
+    transform: rotateY(180deg); /* Ensures it's flipped */
+    background-color: #f39c12; /* Different background color for the back */
+    color: #ffffff; /* Back text color */
 }
 
-.character-card img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
+.card-back p {
+    font-size: 1.2rem; /* Adjust the size as needed */
+    line-height: 1.5;  /* Improve readability by adjusting line height */
+    color: #ffffff;    /* Ensure the text color contrasts with the background */
+    text-align: center; /* Optional: Center-align the text */
+}
+
+.card-back p strong {
+    font-size: 1.4rem; /* Slightly larger for emphasized text */
+}
+
+.card-front img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 50%; /* Optional: Circle effect */
     margin-bottom: 1rem;
 }
-
-.character-card h3 {
-    color: #fff;
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
+/* Characters Grid */
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 2rem; /* Space between the cards */
+    justify-items: center; /* Center align items */
+    padding: 2rem;
 }
-
-.character-card p {
-    font-size: 1rem;
-    color: #c2c2c2;
-    margin-bottom: 1.5rem;
-}
-
-.character-card a {
-    text-decoration: none;
-    color: #f39c12;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
 
 /* Story Section */
 .story-section {
@@ -368,13 +395,13 @@ footer a:hover {
 }
 
 .lessons-section h2 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 1.5rem;
     color: #fff;
 }
 
 .lessons-section p {
-    font-size: 1.2rem;
+    font-size: 1.75rem;
     color: #c2c2c2;
     margin-bottom: 2rem;
 }
@@ -389,6 +416,7 @@ footer a:hover {
 
 .lesson-card {
     background-color: #bab9b94a;
+    height: 600px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -401,21 +429,21 @@ footer a:hover {
 }
 
 .lesson-card img {
-    width: 150px; /* Increased width */
-    height: 150px; /* Increased height */
+    width: 300px; /* Increased width */
+    height: 300px; /* Increased height */
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1rem;
 }
 
 .lesson-content h3 {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
     color: #fff;
 }
 
 .lesson-content p {
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: #c2c2c2;
 }
 
@@ -513,6 +541,160 @@ footer a:hover {
     }
 }
 
+menu-container {
+    text-align: center;
+    margin-top: 20vh;
+}
+
+.menu-container button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.menu-container button:hover {
+    background-color: #005f73;
+}
+
+.hidden {
+    display: none;
+}
+
+.game-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+canvas {
+    border: 2px solid #000;
+}
+
+#gameOver {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+#gameOver.hidden {
+    display: none;
+}
+
+#restartButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#restartButton:hover {
+    background-color: #218838;
+}
+
+#menuButton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#menuButton:hover {
+    background-color: #0056b3;
+}
+
+/* Centering and aligning content in styled sections */
+.styled-section {
+    box-shadow: 0 4px 6px rgba(217, 217, 217, 0.1);
+    padding: 2rem;
+}
+
+.styled-section h1{
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    
+}
+
+.styled-section h2{
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+/* Flexbox for section header */
+.section-header {
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center; /* Vertically align items in the center */
+    gap: 3rem; /* Add spacing between the title and image */
+    padding: 1rem; /* Add some padding for better spacing */
+}
+
+/* Styling for the title */
+.section-header h2 {
+    font-size: 3rem; /* Adjust the font size for the title */
+    color: #fff; /* Title color */
+    margin: 0; /* Remove default margin */
+}
+
+/* Styling for the image */
+.section-header .khanda-img {
+    width: 350px; /* Adjust the width of the image */
+    height: auto; /* Maintain the aspect ratio */
+    border-radius: 360px; /* Optional: Add rounded corners */
+    object-fit: cover; /* Ensure the image fits nicely */
+}
+
+  
+/* Styling for the paragraph and list */
+.styled-section p, .styled-section ul {
+    margin-top:  2rem ; /* Add vertical spacing */
+    margin-left: 3rem;
+    color: #c2c2c2; /* Text color */
+    font-size: 1.6rem;
+    line-height: 1.8;
+}
+
+.styled-section ul {
+    list-style-position: outside; /* Ensures bullets are outside the text block */
+    padding-left: 2rem; /* Adds padding to align all bullets at the same position */
+    margin-left: 3rem; /* Centers the list within the section */
+    text-align: left; /* Aligns text and bullets to the left */
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+    .khanda-img {
+        width: 80%; /* Resize image for smaller screens */
+    }
+
+    .styled-section p, .styled-section ul {
+        font-size: 1rem; /* Adjust text size for readability */
+    }
+}
+
 
 /* Background elements */
 .animated-background, #particles-js, #starfield {
@@ -569,23 +751,3 @@ footer a:hover {
     height: 100%;
     z-index: 0; /* Ensure it stays behind content but above the starfield */
 /* } */
-
-.gameCanvas{
-    background-color: #333;
-    width: auto; /* Adjusted width */
-    height: auotx; /* Adjusted height */
-}
-
-.gameButton {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #8b0000;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #b22222;
-}
