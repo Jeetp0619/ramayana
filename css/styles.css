@@ -418,6 +418,14 @@ menu-container {
     margin-top: 20vh;
 }
 
+.menu-container h1{
+    color: white;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+
+
 .menu-container button {
     display: block;
     margin: 20px auto;
@@ -481,6 +489,45 @@ canvas {
 
 #restartButton:hover {
     background-color: #218838;
+}
+
+/* Flexbox for Side-by-Side Game Options */
+.game-options {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px; /* Space between game options */
+    margin-top: 20px;
+}
+
+.game-options {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px; /* Increased gap for larger thumbnails */
+    margin-top: 20px;
+}
+
+.game-thumbnail {
+    width: 400px; /* Increased width for larger thumbnails */
+    height: auto; /* Maintain aspect ratio */
+    border: 3px solid #ddd; /* Slightly thicker border */
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 15px; /* Space below thumbnail */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow for emphasis */
+}
+
+/* Responsive Thumbnails */
+@media (max-width: 768px) {
+    .game-thumbnail {
+        width: 300px; /* Smaller thumbnails for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .game-thumbnail {
+        width: 250px; /* Further reduce size on very small screens */
+    }
 }
 
 #menuButton {
