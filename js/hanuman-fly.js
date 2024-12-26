@@ -33,8 +33,8 @@ export class HanumanFlyGame {
         this.hanumanImage = new Image();
         this.hanumanImage.src = "img/game-images/hanuman.png";
 
-        this.fireballImage = new Image();
-        this.fireballImage.src = "img/game-images/fireball.png";
+        this.chakraImage = new Image();
+        this.chakraImage.src = "img/game-images/chakra.png";
 
         this.bananaImage = new Image();
         this.bananaImage.src = "img/game-images/banana.png";
@@ -104,7 +104,7 @@ export class HanumanFlyGame {
     spawnObstacle() {
         const obstacleCount = 1; // Always spawn only one obstacle
         for (let i = 0; i < obstacleCount; i++) {
-            const size = Math.random() * 50 + 30; // Random size for fireball
+            const size = Math.random() * 50 + 30; // Random size for chakra
             const radius = size / 2;
             const y = Math.random() * (this.canvas.height - radius * 2); // Ensure obstacle stays visible
             this.obstacles.push({
@@ -185,10 +185,10 @@ export class HanumanFlyGame {
             this.hanuman.height
         );
 
-        // Draw Obstacles (Fireballs with circular hitbox)
+        // Draw Obstacles (chakras with circular hitbox)
         for (const obs of this.obstacles) {
             this.ctx.drawImage(
-                this.fireballImage,
+                this.chakraImage,
                 obs.x - obs.radius, // Center the image horizontally
                 obs.y - obs.radius, // Center the image vertically
                 obs.radius * 2, // Diameter for width
@@ -214,7 +214,7 @@ export class HanumanFlyGame {
     }
 
     checkCollision() {
-        // Check collision with obstacles (fireballs with circular hitbox)
+        // Check collision with obstacles (chakras with circular hitbox)
         for (const obs of this.obstacles) {
             const dx = (this.hanuman.x + this.hanuman.width / 2) - obs.x; // Distance x-axis
             const dy = (this.hanuman.y + this.hanuman.height / 2) - obs.y; // Distance y-axis
